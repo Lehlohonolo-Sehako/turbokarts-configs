@@ -1,0 +1,32 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+          gateway.route.RouteDefinitionLocator: info
+    root: info
+spring:
+  application:
+    name: turbokarts-api-gateway
+  cloud:
+    gateway:
+      routes:
+        -   id: team-registration
+            predicates:
+              - Path=/api/v1/drivers
+              - Path=/api/v1/teams
+              - Path=/api/v1/karts
+            uri: lb://team-registration
+        -   id: race-management
+            predicates:
+              - Path=/api/v1/bookings
+              - Path=/api/v1/tracks
+              - Path=/api/v1/races
+            uri: lb://race-management
+  main:
+    web-application-type: reactive

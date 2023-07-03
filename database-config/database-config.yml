@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    password: 20557622
+    url: jdbc:postgresql://localhost:5432/turbokarts
+    username: postgres
+  devtools:
+    restart:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
