@@ -1,2 +1,2 @@
-# turbokarts-config-server
+# turbokarts-configs
 Spring Cloud Config Server
